@@ -55,7 +55,7 @@ def getOutput(fname):
 	# pull files from remote dir
 	filenameshort = fname
 	remoteDir = 'caskeylab@caskeylab-HP-Z820-Workstation:Tom/ConvnetCellDetection/data/Try3/' 
-	getFiles = 'pscp -r -pw ultrasound ' + remoteDir + filenameshort + '_postprocessed .'
+	getFiles = 'pscp -r -pw HIDDEN ' + remoteDir + filenameshort + '_postprocessed .'
 	os.system(getFiles)
 	
 	
@@ -102,7 +102,7 @@ def pushFile(fnameshort,filename2):
 	ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	username = 'caskeylab'
 	hostname = 'caskeylab-HP-Z820-Workstation'
-	password = 'ultrasound'
+	password = 'HIDDEN'
 	ssh_client.connect(hostname, 22, username, password)
 	mkfol = 'mkdir Tom/ConvnetCellDetection/data/Try3/' + fnameshort[0:-4]
 	cmd = mkfol
@@ -114,7 +114,7 @@ def pushFile(fnameshort,filename2):
 	
 	#use putty command to push file
 	remoteDir = 'caskeylab@caskeylab-HP-Z820-Workstation:Tom/ConvnetCellDetection/data/Try3/' + fnameshort[0:-4] + '/'
-	putFile = 'pscp -pw ultrasound ' + filename2 + ' ' + remoteDir
+	putFile = 'pscp -pw HIDDEN ' + filename2 + ' ' + remoteDir
 	print(putFile)
 	os.system(putFile)
 	
@@ -145,7 +145,7 @@ def updateConfig(fnameshort):
 
 	# push it to remote dir
 	remoteDir = 'caskeylab@caskeylab-HP-Z820-Workstation:Tom/ConvnetCellDetection/data/Try3/'
-	putFile = 'pscp -pw ultrasound main_config.cfg ' + remoteDir
+	putFile = 'pscp -pw HIDDEN main_config.cfg ' + remoteDir
 	os.system(putFile)
 
 def runZNN():
@@ -153,7 +153,7 @@ def runZNN():
 	ssh_client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 	username = 'caskeylab'
 	hostname = 'caskeylab-HP-Z820-Workstation'
-	password = 'ultrasound'
+	password = 'HIDDEN'
 	ssh_client.connect(hostname, 22, username, password)
 	move = 'cd Tom/ConvnetCellDetection/src; '
 	run = '/home/caskeylab/anaconda3/envs/Conv2/bin/python pipeline.py complete ../data/Try3/main_config.cfg; '
