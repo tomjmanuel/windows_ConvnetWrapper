@@ -17,4 +17,5 @@ change Hostnames, IP addresses, and passwords in ConnApp.py to match your linux 
 run ConnApp.py from within virtualEnv
 
 Open a file, it will get sent to the linux machine for cell detection. The machine will send back cells that the neural net found!
-You can then adjust roi thresholder and save the outputs. The output of these is compatible with imageJ.
+
+run visualizeTom.py from within virtualEnv to see outputs in a gui. You can then adjust roi thresholder and save the outputs. The output of these is compatible with imageJ.
